@@ -53,17 +53,13 @@ class Broker(Script):
                 raise ef
 
     def configure(self, env):
-        import socket
         from params import broker
         key_val_template = '{0}={1}\n'
-
-        ipStr = socket.gethostbyname(socket.gethostname())
-        ip = ipStr.replace(".", "")
 
         with open(kafkaHome + '/config/server.properties', 'w') as f:
             for key, value in broker.iteritems():
                 f.write(key_val_template.format(key, value))
-            f.write(key_val_template.format('broker.id', ip))
+            # f.write(key_val_template.format('broker.id', ip))
 
 
 if __name__ == '__main__':
