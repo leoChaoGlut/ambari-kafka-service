@@ -39,7 +39,7 @@ class Broker(Script):
 
     def start(self, env):
         self.configure(self)
-        Execute(kafkaHome + '/bin/kafka-server-start.sh ' + kafkaHome + '/config/connect-distributed.properties')
+        Execute(kafkaHome + '/bin/kafka-server-start.sh ' + kafkaHome + '/config/server.properties')
 
     def status(self, env):
         try:
