@@ -35,11 +35,11 @@ class Broker(Script):
         self.configure(env)
 
     def stop(self, env):
-        Execute(kafkaHome + '/bin/kafka-server-stop.sh')
+        Execute('cd ' + kafkaHome + ' && bin/kafka-server-stop.sh')
 
     def start(self, env):
         self.configure(self)
-        Execute(kafkaHome + '/bin/kafka-server-start.sh ' + kafkaHome + '/config/server.properties')
+        Execute('cd ' + kafkaHome + ' && nohup bin/kafka-server-start.sh config/server.properties > broker.out 2>&1 &')
 
     def status(self, env):
         try:

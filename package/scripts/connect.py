@@ -36,11 +36,13 @@ class Connect(Script):
 
     def stop(self, env):
         Execute(
-            'ps -ef |grep -v grep |grep "org.apache.kafka.connect.cli.ConnectDistributed config/connect-distributed.properties" |awk \'{print $2}\'|xargs kill -9')
+            'ps -ef |grep -v grep |grep "org.apache.kafka.connect.cli.ConnectDistributed config/connect-distributed.properties" |awk \'{print $2}\'|xargs kill -9'
+        )
 
     def start(self, env):
         self.configure(self)
-        Execute(kafkaHome + '/bin/connect-distributed.sh ' + kafkaHome + '/config/connect-distributed.properties')
+        Execute(
+            'cd ' + kafkaHome + ' && nohup bin/connect-distributed.sh config/connect-distributed.properties > connect.out 2>&1 &')
 
     def status(self, env):
         try:
