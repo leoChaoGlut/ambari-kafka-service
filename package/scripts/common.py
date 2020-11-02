@@ -25,4 +25,4 @@ packageDir = os.path.dirname(script_dir)
 serviceDir = os.path.dirname(packageDir)
 serviceName = os.path.basename(serviceDir)
 
-kafkaHome = '/data/kudu'
+kafkaHome = '/data/kafka'
