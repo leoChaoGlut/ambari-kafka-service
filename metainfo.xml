@@ -18,13 +18,13 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>KAFKA</name>
+            <name>KAFKA_260</name>
             <displayName>kafka</displayName>
             <comment></comment>
             <version>2.6.0</version>
             <components>
                 <component>
-                    <name>KAFKA</name>
+                    <name>KAFKA_260</name>
                     <displayName>Kafka</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
@@ -38,7 +38,7 @@
                 </component>
 
                 <component>
-                    <name>KAFKA_CONNECT</name>
+                    <name>KAFKA_CONNECT_260</name>
                     <displayName>Kafka Connect</displayName>
                     <category>SLAVE</category>
                     <cardinality>0+</cardinality>
