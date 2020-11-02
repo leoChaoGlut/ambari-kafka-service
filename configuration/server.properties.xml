@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<configuration>
+    <property>
+        <name>listeners</name>
+        <value>PLAINTEXT://:10001</value>
+    </property>
+    <property>
+        <name>num.network.threads</name>
+        <value>3</value>
+    </property>
+    <property>
+        <name>num.io.threads</name>
+        <value>8</value>
+    </property>
+    <property>
+        <name>socket.receive.buffer.bytes</name>
+        <value>102400</value>
+    </property>
+    <property>
+        <name>socket.request.max.bytes</name>
+        <value>104857600</value>
+    </property>
+    <property>
+        <name>log.dirs</name>
+        <value>/tmp/kafka-logs</value>
+    </property>
+    <property>
+        <name>num.partitions</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>num.recovery.threads.per.data.dir</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>offsets.topic.replication.factor</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>transaction.state.log.replication.factor</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>transaction.state.log.min.isr</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>log.retention.hours</name>
+        <value>168</value>
+    </property>
+    <property>
+        <name>log.segment.bytes</name>
+        <value>1073741824</value>
+    </property>
+    <property>
+        <name>log.retention.check.interval.ms</name>
+        <value>300000</value>
+    </property>
+    <property require-input="true">
+        <name>zookeeper.connect</name>
+        <value></value>
+    </property>
+    <property>
+        <name>zookeeper.connection.timeout.ms</name>
+        <value>18000</value>
+    </property>
+    <property>
+        <name>group.initial.rebalance.delay.ms</name>
+        <value>0</value>
+    </property>
+    <property>
+        <name>default.replication.factor</name>
+        <value>2</value>
+    </property>
+</configuration>

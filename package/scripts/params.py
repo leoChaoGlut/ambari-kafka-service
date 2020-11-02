@@ -18,10 +18,8 @@ from resource_management.libraries.script.script import Script
 # config object that holds the configurations declared in the config xml file
 config = Script.get_config()
 
-kudu_master = config['configurations']['kudu-master']
-kudu_tserver = config['configurations']['kudu-tserver']
-master_gflagfile = config['configurations']['master.gflagfile']
-tserver_gflagfile = config['configurations']['tserver.gflagfile']
+broker = config['configurations']['server.properties']
+connect = config['configurations']['connect-distributed.properties']
 
 host_info = config['clusterHostInfo']
 

@@ -19,12 +19,10 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config = ConfigParser.ConfigParser()
 config.readfp(open(os.path.join(script_dir, 'download.ini')))
 
-KUDU_RPM = config.get('download', 'kudu_rpm')
-KUDU_MASTER_RPM = config.get('download', 'kudu_master_rpm')
-KUDU_TSERVER_RPM = config.get('download', 'kudu_tserver_rpm')
+kafka_tar = config.get('download', 'kafka_tar')
 
 packageDir = os.path.dirname(script_dir)
 serviceDir = os.path.dirname(packageDir)
 serviceName = os.path.basename(serviceDir)
 
-kuduHome = '/data/kudu'
+kafkaHome = '/data/kudu'

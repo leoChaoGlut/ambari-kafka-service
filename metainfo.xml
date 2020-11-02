@@ -18,44 +18,43 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>KUDU</name>
-            <displayName>Kudu</displayName>
+            <name>KAFKA</name>
+            <displayName>kafka</displayName>
             <comment></comment>
-            <version>1.10.0</version>
+            <version>2.6.0</version>
             <components>
                 <component>
-                    <name>KUDU_MASTER</name>
-                    <displayName>Kudu Master</displayName>
+                    <name>KAFKA</name>
+                    <displayName>Kafka</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
                     <versionAdvertised>true</versionAdvertised>
                     <recovery_enabled>true</recovery_enabled>
                     <commandScript>
-                        <script>scripts/master.py</script>
+                        <script>scripts/broker.py</script>
                         <scriptType>PYTHON</scriptType>
                         <timeout>60</timeout>
                     </commandScript>
                 </component>
 
                 <component>
-                    <name>KUDU_TSERVER</name>
-                    <displayName>Kudu Tserver</displayName>
+                    <name>KAFKA_CONNECT</name>
+                    <displayName>Kafka Connect</displayName>
                     <category>SLAVE</category>
-                    <cardinality>1+</cardinality>
+                    <cardinality>0+</cardinality>
                     <versionAdvertised>true</versionAdvertised>
                     <recovery_enabled>true</recovery_enabled>
                     <commandScript>
-                        <script>scripts/tserver.py</script>
+                        <script>scripts/connect.py</script>
                         <scriptType>PYTHON</scriptType>
+                        <timeout>60</timeout>
                     </commandScript>
                 </component>
             </components>
 
             <configuration-dependencies>
-                <config-type>master.gflagfile</config-type>
-                <config-type>tserver.gflagfile</config-type>
-                <config-type>kudu-master</config-type>
-                <config-type>kudu-tserver</config-type>
+                <config-type>connect-distributed.properties</config-type>
+                <config-type>server.properties</config-type>
             </configuration-dependencies>
 
         </service>
