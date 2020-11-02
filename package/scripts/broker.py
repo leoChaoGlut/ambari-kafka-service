@@ -59,7 +59,6 @@ class Broker(Script):
         with open(kafkaHome + '/config/server.properties', 'w') as f:
             for key, value in broker.iteritems():
                 f.write(key_val_template.format(key, value))
-            # f.write(key_val_template.format('broker.id', ip))
 
 
 if __name__ == '__main__':
