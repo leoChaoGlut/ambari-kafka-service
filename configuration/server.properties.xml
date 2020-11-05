@@ -52,9 +52,12 @@
         <name>socket.request.max.bytes</name>
         <value>104857600</value>
     </property>
-    <property>
+    <property require-input="true">
         <name>log.dirs</name>
-        <value>/tmp/kafka-logs</value>
+        <value></value>
+        <description>
+            /tmp/kafka-logs
+        </description>
     </property>
     <property>
         <name>num.partitions</name>
@@ -66,7 +69,7 @@
     </property>
     <property>
         <name>offsets.topic.replication.factor</name>
-        <value>1</value>
+        <value>3</value>
     </property>
     <property>
         <name>transaction.state.log.replication.factor</name>
