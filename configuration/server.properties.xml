@@ -20,37 +20,17 @@
  */
 -->
 <configuration>
-    <property>
-        <name>queued.max.requests</name>
-        <value>500</value>
+    <property require-input="true">
+        <name>zookeeper.connect</name>
+        <value></value>
     </property>
     <property>
-        <name>min.insync.replicas</name>
-        <value>2</value>
-    </property>
-    <property>
-        <name>auto.create.topics.enable</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>listeners</name>
-        <value>PLAINTEXT://:10001</value>
-    </property>
-    <property>
-        <name>num.network.threads</name>
-        <value>3</value>
-    </property>
-    <property>
-        <name>num.io.threads</name>
+        <name>num.partitions</name>
         <value>8</value>
     </property>
     <property>
-        <name>socket.receive.buffer.bytes</name>
-        <value>102400</value>
-    </property>
-    <property>
-        <name>socket.request.max.bytes</name>
-        <value>104857600</value>
+        <name>default.replication.factor</name>
+        <value>3</value>
     </property>
     <property require-input="true">
         <name>log.dirs</name>
@@ -60,51 +40,20 @@
         </description>
     </property>
     <property>
-        <name>num.partitions</name>
-        <value>1</value>
+        <name>listeners</name>
+        <value>PLAINTEXT://:10001</value>
     </property>
     <property>
-        <name>num.recovery.threads.per.data.dir</name>
-        <value>1</value>
+        <name>auto.create.topics.enable</name>
+        <value>true</value>
     </property>
     <property>
-        <name>offsets.topic.replication.factor</name>
-        <value>3</value>
+        <name>min.insync.replicas</name>
+        <value>2</value>
     </property>
     <property>
-        <name>transaction.state.log.replication.factor</name>
-        <value>1</value>
+        <name>queued.max.requests</name>
+        <value>500</value>
     </property>
-    <property>
-        <name>transaction.state.log.min.isr</name>
-        <value>1</value>
-    </property>
-    <property>
-        <name>log.retention.hours</name>
-        <value>168</value>
-    </property>
-    <property>
-        <name>log.segment.bytes</name>
-        <value>1073741824</value>
-    </property>
-    <property>
-        <name>log.retention.check.interval.ms</name>
-        <value>300000</value>
-    </property>
-    <property require-input="true">
-        <name>zookeeper.connect</name>
-        <value></value>
-    </property>
-    <property>
-        <name>zookeeper.connection.timeout.ms</name>
-        <value>18000</value>
-    </property>
-    <property>
-        <name>group.initial.rebalance.delay.ms</name>
-        <value>0</value>
-    </property>
-    <property>
-        <name>default.replication.factor</name>
-        <value>3</value>
-    </property>
+
 </configuration>

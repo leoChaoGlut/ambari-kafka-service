@@ -49,24 +49,12 @@
         <value>connect-offsets</value>
     </property>
     <property>
-        <name>offset.storage.replication.factor</name>
-        <value>1</value>
-    </property>
-    <property>
         <name>config.storage.topic</name>
         <value>connect-configs</value>
     </property>
     <property>
-        <name>config.storage.replication.factor</name>
-        <value>1</value>
-    </property>
-    <property>
         <name>status.storage.topic</name>
         <value>connect-status</value>
-    </property>
-    <property>
-        <name>status.storage.replication.factor</name>
-        <value>1</value>
     </property>
     <property>
         <name>offset.flush.interval.ms</name>
@@ -76,13 +64,6 @@
         <name>rest.port</name>
         <value>10200</value>
     </property>
-    <property>
-        <name>send.buffer.bytes</name>
-        <value>524288</value>
-    </property>
-    <property>
-        <name>receive.buffer.bytes</name>
-        <value>131072</value>
-    </property>
+
 
 </configuration>
