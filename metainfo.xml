@@ -19,13 +19,13 @@
     <services>
         <service>
             <name>KAFKA_260</name>
-            <displayName>kafka</displayName>
+            <displayName>KAFKA_260</displayName>
             <comment></comment>
             <version>2.6.0</version>
             <components>
                 <component>
-                    <name>KAFKA_260</name>
-                    <displayName>Kafka</displayName>
+                    <name>KAFKA_BROKER_260</name>
+                    <displayName>KAFKA_BROKER_260</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
                     <versionAdvertised>true</versionAdvertised>
@@ -39,7 +39,7 @@
 
                 <component>
                     <name>KAFKA_CONNECT_260</name>
-                    <displayName>Kafka Connect</displayName>
+                    <displayName>KAFKA_CONNECT_260</displayName>
                     <category>SLAVE</category>
                     <cardinality>0+</cardinality>
                     <versionAdvertised>true</versionAdvertised>

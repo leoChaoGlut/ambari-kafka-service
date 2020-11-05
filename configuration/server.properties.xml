@@ -21,6 +21,18 @@
 -->
 <configuration>
     <property>
+        <name>queued.max.requests</name>
+        <value>500</value>
+    </property>
+    <property>
+        <name>min.insync.replicas</name>
+        <value>2</value>
+    </property>
+    <property>
+        <name>auto.create.topics.enable</name>
+        <value>true</value>
+    </property>
+    <property>
         <name>listeners</name>
         <value>PLAINTEXT://:10001</value>
     </property>
@@ -90,6 +102,6 @@
     </property>
     <property>
         <name>default.replication.factor</name>
-        <value>2</value>
+        <value>3</value>
     </property>
 </configuration>

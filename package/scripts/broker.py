@@ -35,11 +35,11 @@ class Broker(Script):
         self.configure(env)
 
     def stop(self, env):
-        Execute(kafkaHome + '/bin/kafka-server-stop.sh')
+        Execute('cd ' + kafkaHome + ' && bin/kafka-server-stop.sh')
 
     def start(self, env):
         self.configure(self)
-        Execute(kafkaHome + '/bin/kafka-server-start.sh ' + kafkaHome + '/config/connect-distributed.properties')
+        Execute('cd ' + kafkaHome + ' && nohup bin/kafka-server-start.sh config/server.properties > broker.out 2>&1 &')
 
     def status(self, env):
         try:
@@ -53,17 +53,12 @@ class Broker(Script):
                 raise ef
 
     def configure(self, env):
-        import socket
         from params import broker
         key_val_template = '{0}={1}\n'
-
-        ipStr = socket.gethostbyname(socket.gethostname())
-        ip = ipStr.replace(".", "")
 
         with open(kafkaHome + '/config/server.properties', 'w') as f:
             for key, value in broker.iteritems():
                 f.write(key_val_template.format(key, value))
-            f.write(key_val_template.format('broker.id', ip))
 
 
 if __name__ == '__main__':
