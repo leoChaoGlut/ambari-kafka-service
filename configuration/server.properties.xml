@@ -55,5 +55,13 @@
         <name>queued.max.requests</name>
         <value>500</value>
     </property>
+    <property>
+        <name>compression.type</name>
+        <value>zstd</value>
+    </property>
+    <property>
+        <name>log.retention.hours</name>
+        <value>72</value>
+    </property>
 
 </configuration>
