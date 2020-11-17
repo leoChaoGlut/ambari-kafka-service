@@ -64,6 +64,10 @@
         <name>rest.port</name>
         <value>10200</value>
     </property>
+    <property>
+        <name>plugin.path</name>
+        <value>connectors</value>
+    </property>
 
 
 </configuration>
