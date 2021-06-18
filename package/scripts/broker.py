@@ -13,11 +13,12 @@
 # limitations under the License.
 
 
+import socket
 from resource_management.core.exceptions import ExecutionFailed, ComponentIsNotRunning
 from resource_management.core.resources.system import Execute
 from resource_management.libraries.script.script import Script
 
-from common import kafkaHome, kafka_tar
+from common import kafkaHome, kafkaTarUrl
 
 
 class Broker(Script):
@@ -28,7 +29,7 @@ class Broker(Script):
         Execute('mkdir -p {0}'.format(kafkaTmpDir))
         Execute('mkdir -p {0}'.format(kafkaHome))
 
-        Execute('wget --no-check-certificate {0} -O {1}'.format(kafka_tar, kafkaTarTmpPath))
+        Execute('wget --no-check-certificate {0} -O {1}'.format(kafkaTarUrl, kafkaTarTmpPath))
 
         Execute('tar -xf {0} -C {1} --strip-components=1'.format(kafkaTarTmpPath, kafkaHome))
 
@@ -56,9 +57,15 @@ class Broker(Script):
         from params import broker
         key_val_template = '{0}={1}\n'
 
+        kafkaServerPort = broker['kafka.server.port']
+
         with open(kafkaHome + '/config/server.properties', 'w') as f:
             for key, value in broker.iteritems():
-                f.write(key_val_template.format(key, value))
+                if key == 'kafka.server.port':
+                    f.write(key_val_template.format('listeners',
+                                                    'PLAINTEXT://' + socket.gethostname() + ':' + kafkaServerPort))
+                else:
+                    f.write(key_val_template.format(key, value))
 
 
 if __name__ == '__main__':

@@ -19,10 +19,10 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config = ConfigParser.ConfigParser()
 config.readfp(open(os.path.join(script_dir, 'download.ini')))
 
-kafka_tar = config.get('download', 'kafka_tar')
 
 packageDir = os.path.dirname(script_dir)
 serviceDir = os.path.dirname(packageDir)
 serviceName = os.path.basename(serviceDir)
 
 kafkaHome = '/data/kafka'
+kafkaTarUrl = config.get('download', 'kafka_tar_url')

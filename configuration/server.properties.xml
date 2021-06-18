@@ -26,7 +26,7 @@
     </property>
     <property>
         <name>num.partitions</name>
-        <value>8</value>
+        <value>1</value>
     </property>
     <property>
         <name>default.replication.factor</name>
@@ -34,19 +34,21 @@
     </property>
     <property require-input="true">
         <name>log.dirs</name>
-        <value></value>
-        <description>
-            /tmp/kafka-logs
-        </description>
+        <value>/data/kafka/kafka-logs</value>
     </property>
     <property>
-        <name>listeners</name>
-        <value>PLAINTEXT://:10001</value>
+        <name>kafka.server.port</name>
+        <value>9092</value>
     </property>
-    <property>
-        <name>advertised.listeners</name>
-        <value>PLAINTEXT://:10001</value>
-    </property>
+
+    <!--    <property>-->
+    <!--        <name>listeners</name>-->
+    <!--        <value>PLAINTEXT://:10001</value>-->
+    <!--    </property>-->
+    <!--    <property>-->
+    <!--        <name>advertised.listeners</name>-->
+    <!--        <value>PLAINTEXT://:10001</value>-->
+    <!--    </property>-->
     <property>
         <name>auto.create.topics.enable</name>
         <value>true</value>
@@ -59,13 +61,13 @@
         <name>queued.max.requests</name>
         <value>500</value>
     </property>
-    <property>
-        <name>compression.type</name>
-        <value>zstd</value>
-    </property>
+    <!--    <property>-->
+    <!--        <name>compression.type</name>-->
+    <!--        <value>zstd</value>-->
+    <!--    </property>-->
     <property>
         <name>log.retention.hours</name>
-        <value>72</value>
+        <value>168</value>
     </property>
 
 

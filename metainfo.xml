@@ -18,14 +18,13 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>KAFKA_260</name>
-            <displayName>KAFKA_260</displayName>
-            <comment></comment>
-            <version>2.6.0</version>
+            <name>KAFKA_280</name>
+            <displayName>KAFKA_280</displayName>
+            <version>2.8.0</version>
             <components>
                 <component>
-                    <name>KAFKA_BROKER_260</name>
-                    <displayName>KAFKA_BROKER_260</displayName>
+                    <name>KAFKA_BROKER_280</name>
+                    <displayName>KAFKA_BROKER_280</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
                     <versionAdvertised>true</versionAdvertised>
@@ -37,23 +36,22 @@
                     </commandScript>
                 </component>
 
-                <component>
-                    <name>KAFKA_CONNECT_260</name>
-                    <displayName>KAFKA_CONNECT_260</displayName>
-                    <category>SLAVE</category>
-                    <cardinality>0+</cardinality>
-                    <versionAdvertised>true</versionAdvertised>
-                    <recovery_enabled>true</recovery_enabled>
-                    <commandScript>
-                        <script>scripts/connect.py</script>
-                        <scriptType>PYTHON</scriptType>
-                        <timeout>60</timeout>
-                    </commandScript>
-                </component>
+                <!--                <component>-->
+                <!--                    <name>KAFKA_CONNECT_260</name>-->
+                <!--                    <displayName>KAFKA_CONNECT_260</displayName>-->
+                <!--                    <category>SLAVE</category>-->
+                <!--                    <cardinality>0+</cardinality>-->
+                <!--                    <versionAdvertised>true</versionAdvertised>-->
+                <!--                    <recovery_enabled>true</recovery_enabled>-->
+                <!--                    <commandScript>-->
+                <!--                        <script>scripts/connect.py</script>-->
+                <!--                        <scriptType>PYTHON</scriptType>-->
+                <!--                        <timeout>60</timeout>-->
+                <!--                    </commandScript>-->
+                <!--                </component>-->
             </components>
 
             <configuration-dependencies>
-                <config-type>connect-distributed.properties</config-type>
                 <config-type>server.properties</config-type>
             </configuration-dependencies>
 
