@@ -18,11 +18,17 @@ from resource_management.core.exceptions import ExecutionFailed, ComponentIsNotR
 from resource_management.core.resources.system import Execute
 from resource_management.libraries.script.script import Script
 
-from common import kafkaHome, kafkaTarUrl
+from common import kafkaHome, kafkaTarUrl, jdk11TarName, jdk11Home, jdk11Url, exportJavaHomeAndPath
 
 
 class Broker(Script):
     def install(self, env):
+        # download jdk11 and extract jdk11 tarball
+        tmpJdk11Path = '/tmp/' + jdk11TarName
+        Execute('mkdir -p {0}'.format(jdk11Home))
+        Execute('wget --no-check-certificate {0} -O {1}'.format(jdk11Url, tmpJdk11Path))
+        Execute('tar -xf {0} -C {1} --strip-components=1'.format(tmpJdk11Path, jdk11Home))
+
         kafkaTmpDir = '/tmp/kafka'
         kafkaTarTmpPath = kafkaTmpDir + '/kafka.tar'
 
@@ -36,11 +42,13 @@ class Broker(Script):
         self.configure(env)
 
     def stop(self, env):
-        Execute('cd ' + kafkaHome + ' && bin/kafka-server-stop.sh')
+        Execute('cd ' + kafkaHome + ' && ' + exportJavaHomeAndPath + ' && bin/kafka-server-stop.sh')
 
     def start(self, env):
         self.configure(self)
-        Execute('cd ' + kafkaHome + ' && nohup bin/kafka-server-start.sh config/server.properties > broker.out 2>&1 &')
+        Execute(
+            'cd ' + kafkaHome + ' && ' + exportJavaHomeAndPath + ' && nohup bin/kafka-server-start.sh '
+                                                                 'config/server.properties > broker.out 2>&1 &')
 
     def status(self, env):
         try:

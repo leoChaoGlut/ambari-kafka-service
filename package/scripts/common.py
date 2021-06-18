@@ -19,10 +19,15 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config = ConfigParser.ConfigParser()
 config.readfp(open(os.path.join(script_dir, 'download.ini')))
 
-
 packageDir = os.path.dirname(script_dir)
 serviceDir = os.path.dirname(packageDir)
 serviceName = os.path.basename(serviceDir)
 
 kafkaHome = '/data/kafka'
 kafkaTarUrl = config.get('download', 'kafka_tar_url')
+
+jdk11Home = '/data/jdk11/'
+jdk11Url = config.get('download', 'jdk11_url')
+jdk11TarName = jdk11Url.split('/')[-1]
+
+exportJavaHomeAndPath = ' export JAVA_HOME=' + jdk11Home + ' && export PATH=${JAVA_HOME}/bin:$PATH '
