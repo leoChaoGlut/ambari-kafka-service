@@ -19,7 +19,7 @@ from resource_management.libraries.script.script import Script
 config = Script.get_config()
 
 broker = config['configurations']['server.properties']
-connect = config['configurations']['connect-distributed.properties']
+# connect = config['configurations']['connect-distributed.properties']
 
 host_info = config['clusterHostInfo']
 
