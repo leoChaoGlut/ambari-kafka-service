@@ -42,6 +42,8 @@ class Broker(Script):
         self.configure(env)
 
     def stop(self, env):
+        self.configure(env)
+
         Execute('cd ' + kafkaHome + ' && ' + exportJavaHomeAndPath + ' && bin/kafka-server-stop.sh')
 
     def start(self, env):
