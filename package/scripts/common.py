@@ -23,10 +23,12 @@ packageDir = os.path.dirname(script_dir)
 serviceDir = os.path.dirname(packageDir)
 serviceName = os.path.basename(serviceDir)
 
-kafkaHome = '/data/kafka'
+kafkaHomePrefix='/home/service/var/data1/kafka'
+
+kafkaHome =kafkaHomePrefix+'/kafka'
 kafkaTarUrl = config.get('download', 'kafka_tar_url')
 
-jdk11Home = '/data/jdk11/'
+jdk11Home = kafkaHomePrefix+'/jdk11/'
 jdk11Url = config.get('download', 'jdk11_url')
 jdk11TarName = jdk11Url.split('/')[-1]
 
